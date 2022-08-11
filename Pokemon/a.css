@@ -1,0 +1,420 @@
+:root {
+    --first-color: rgb(255, 104, 107);
+    --second-color: rgb(237, 242, 244);
+    --lamp-color: rgb(92, 157, 255);
+    --transition-button: 0.25s cubic-bezier(0.25, -0.59, 0.82, 1.66);
+    --black: #2b2d42;
+    --white: #edf2f4;
+    --red1: #d90429;
+    --red2: #ef233c;
+    --grey: #8d99ae;
+    --green: #06d6a0;
+}
+
+.main {
+    font-family: Arial, Helvetica, sans-serif;
+    --widthbox: 180px;
+    --heightline: 8px;
+    --widthcenter: 160px;
+    --widthcirle: 60px;
+    --bg: 40px;
+    width: calc(9 * var(--bg));
+    height: calc(16 * var(--bg));
+    background-color: var(--black);
+    display: block;
+    margin-top: 0px;
+    margin: 0 auto;
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+
+/* -----------------------------HEADER------------------------------------- */
+
+.header {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: var(--red2);
+}
+
+.header_pri {
+    height: 100%;
+    width: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+}
+
+.header_second {
+    width: 100px;
+    height: 70px;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    /* background-color: blueviolet; */
+    right: 30px;
+}
+
+.icon-img {
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+    padding-left: 12px;
+    color: #edf2f4;
+}
+
+.name-proj {
+    font-size: 20px;
+    color: #edf2f4;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.lamp_button {
+    width: 50px;
+    height: 30px;
+    appearance: none;
+    background-color: var(--white);
+    border-radius: 26px;
+    box-shadow: inset 0px 0px 5px var(--black);
+    position: absolute;
+    cursor: pointer;
+}
+
+
+/* tạo hình tròn bên trong nút nhấn */
+
+.lamp_button::before {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    content: "";
+    color: var(--black);
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    background-color: #efe2bf;
+    top: 3px;
+    right: 4px;
+    box-shadow: 0px 0px 6px var(--black);
+    transition: var(--transition-button);
+    border-radius: 50%;
+}
+
+.lamp_button:checked {
+    background-color: var(--red1);
+}
+
+.lamp_button:checked:before {
+    right: 24px;
+}
+
+.lamp_state {
+    display: block;
+    position: absolute;
+    text-align: center;
+    height: 30px;
+    font-size: 1.5 rem;
+    font-weight: bold;
+    color: var(--black);
+    right: -15px;
+    top: 27px;
+}
+
+
+/* ------------------------------------------------------------------------ */
+
+.content {
+    height: 530px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.device {
+    margin-top: 10px;
+    width: 100%;
+    height: 60px;
+    background-color: var(--black);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.deviceitems {
+    color: var(--red2);
+    width: 50px;
+    background-color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    box-shadow: 3px 3px 7px 3px black;
+    cursor: pointer;
+}
+
+.Lamp1 {
+    background-color: var(--grey);
+}
+
+.pokeball {
+    position: absolute;
+    top: 290px;
+    left: 50px;
+}
+
+.bottom {
+    background-color: var(--second-color);
+    transition: margin-top 0.5s ease-out;
+    box-shadow: 3px 3px 7px 3px black;
+}
+
+.ball {
+    width: var(--widthbox);
+    height: calc( calc( var(--widthbox) - var(--heightline)) / 2);
+    border-width: 1px 1px 1px;
+    border-color: black;
+    border-style: solid;
+    border-bottom-right-radius: calc( calc( var(--widthbox) - var(--heightline)) / 2);
+    border-bottom-left-radius: calc( calc( var(--widthbox) - var(--heightline)) / 2);
+    display: flex;
+    justify-content: center;
+}
+
+.top {
+    position: absolute;
+    background-color: var(--red1);
+    top: calc( -1 * calc( calc( var(--widthbox) + var(--heightline)) / 2));
+    transform: rotate(180deg);
+    transition: top .5s ease-in-out .5s;
+    z-index: 1;
+}
+
+.line {
+    position: absolute;
+    width: var(--widthcenter);
+    height: calc( var(--heightline) / 2);
+    top: calc( calc( -1 * var(--heightline)) / 2);
+    left: calc( calc(var(--widthbox) - var(--widthcenter)) / 2);
+    background-color: black;
+}
+
+.blackcirle {
+    width: var(--widthcirle);
+    height: calc( var(--widthcirle) / 2);
+    position: absolute;
+    top: calc( calc( -1 * var(--heightline)) / 2);
+    background-color: black;
+    border-bottom-right-radius: calc( var(--widthcirle) / 2);
+    border-bottom-left-radius: calc( var(--widthcirle) / 2);
+}
+
+.cirlecenter {
+    position: absolute;
+    width: calc( var(--widthcirle) - 10px);
+    height: calc( var(--widthcirle) - 10px);
+    border-radius: 50%;
+    background-color: var(--second-color);
+    top: calc( -1 * calc( ( ( var(--widthcirle) - 10px) / 2) + ( var(--heightline) / 2)));
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cirlecenter::before {
+    content: "";
+    position: absolute;
+    width: calc( var(--widthcirle) - 20px);
+    height: calc( var(--widthcirle) - 20px);
+    border-radius: 50%;
+    border: 2px solid black;
+    z-index: 2;
+}
+
+.lamp {
+    position: absolute;
+    width: calc( var(--widthbox) / 3);
+    height: calc( var(--widthbox) / 3);
+    background-color: var(--lamp-color);
+    box-shadow: 0 -5px 8px 5px var(--lamp-color);
+    top: calc( -1 * calc( ( var(--widthbox) / 3) + ( var(--heightline) / 2)));
+    border-width: 1px;
+    border-style: solid;
+    border-color: #2b2d4236;
+}
+
+.recolor {
+    width: 320px;
+    height: 110px;
+    position: absolute;
+    left: 20px;
+    bottom: 0;
+    border: 3px solid var(--white);
+    border-radius: 16px;
+    box-sizing: border-box;
+}
+
+.recolor_name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 140px;
+    height: 30px;
+    color: #edf2f4;
+    position: absolute;
+    top: -15px;
+    left: 10px;
+    background-color: var(--black);
+}
+
+.color_recomment {
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.recolor-item {
+    width: 30px;
+    height: 30px;
+    background-color: #d90429;
+    box-sizing: border-box;
+    border: 3px solid var(--white);
+    border-radius: 8px;
+}
+
+.item1 {
+    background-color: rgb(255, 51, 85);
+}
+
+.item2 {
+    background-color: rgb(92, 157, 255);
+}
+
+.item3 {
+    background-color: rgb(51, 255, 156);
+}
+
+.item4 {
+    background-color: rgb(139, 51, 255);
+}
+
+.item5 {
+    background-color: rgb(255, 231, 51);
+}
+
+.item6 {
+    background-color: rgb(255, 122, 51);
+}
+
+.colorpicker {
+    width: 100%;
+    position: absolute;
+    bottom: 45px;
+    display: flex;
+    justify-content: center;
+}
+
+.colorhue {
+    width: fit-content;
+    display: flex;
+    position: absolute;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.color_h {
+    width: .8px;
+    height: 30px;
+}
+
+.brightness {
+    width: 50px;
+    height: 220px;
+    position: absolute;
+    top: 160px;
+    right: 35px;
+}
+
+.opacity_bg {
+    width: 50px;
+    height: 219px;
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+}
+
+.opacity_list {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    flex-direction: column;
+    box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.5);
+}
+
+.opacity {
+    background-color: var(--red2);
+    width: 50px;
+    height: 2.2px;
+}
+
+.lvlight {
+    display: flex;
+    width: 50px;
+    height: 25px;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    color: white;
+}
+
+.footer {
+    width: 100%;
+    height: 50px;
+    /* background-color: var(--white); */
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    left: 0;
+    bottom: 0;
+}
+
+.footeritem {
+    margin-left: 32px;
+    cursor: pointer;
+    height: 100%;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--red2);
+}
+
+.footeritem:hover {
+    color: var(--red1);
+    box-sizing: border-box;
+}
